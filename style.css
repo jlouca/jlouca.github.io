@@ -1,0 +1,158 @@
+/* Jane Shooter portfolio - phone layout first, wider layout further down */
+
+:root {
+  --bg: #000000;
+  --text: #ffffff;
+  --muted: #c9d1d9;
+  --accent: #a8d8ff;      /* light blue headings */
+  --panel: #12161c;
+  --border: #2a313a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Comfortaa", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+a { color: var(--accent); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.brand {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 18px;
+}
+.site-header nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 4px;          /* big enough to tap */
+}
+.site-header nav a:hover { color: var(--accent); }
+
+/* ---------- Sections ---------- */
+section {
+  padding: 48px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+h1 { font-size: 2.4rem; margin: 0 0 6px; line-height: 1.2; }
+h2 { color: var(--accent); font-size: 2rem; margin: 0 0 18px; }
+h3 { margin: 12px 0 8px; }
+.title { color: var(--accent); font-size: 1.25rem; margin: 0 0 14px; }
+.lead { max-width: 640px; margin: 0 auto 24px; color: var(--muted); }
+
+.hero { padding-top: 64px; padding-bottom: 64px; }
+
+/* ---------- Buttons ---------- */
+.buttons { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+
+.btn {
+  display: inline-block;
+  min-height: 46px;
+  padding: 10px 24px;
+  background: var(--accent);
+  color: #001522;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 8px;
+  border: 2px solid var(--accent);
+}
+.btn:hover { background: #ffffff; border-color: #ffffff; }
+.btn-outline { background: transparent; color: var(--accent); }
+.btn-outline:hover { color: #001522; }
+
+/* ---------- Skills ---------- */
+.skills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.skills li {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 999px;
+}
+
+/* ---------- Cards ---------- */
+.cards, .mini-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  text-align: left;
+}
+.card, .mini {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+}
+.card img {
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+}
+.card .btn { margin-top: 6px; }
+.card.wide { max-width: 640px; margin: 0 auto; }
+
+.sub { margin-top: 40px; color: var(--accent); font-size: 1.4rem; }
+.mini h4 { margin: 0 0 6px; }
+.mini p { margin: 0; color: var(--muted); }
+
+/* ---------- Contact ---------- */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+}
+.contact-list li { padding: 6px 0; }
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 24px 16px 36px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Wider screens ---------- */
+@media (min-width: 768px) {
+  .site-header { flex-direction: row; justify-content: space-between; padding: 16px 32px; }
+  .buttons { flex-direction: row; justify-content: center; }
+  .mini-cards { grid-template-columns: repeat(3, 1fr); }
+  h1 { font-size: 3.4rem; }
+}
+@media (min-width: 960px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}
