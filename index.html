@@ -6,7 +6,7 @@
   <title>Jane Shooter | WordPress Developer &amp; Web Designer</title>
   <meta name="description" content="Jane Shooter builds and manages WordPress websites for small businesses: design, logos, content, and SEO. Based in Ontario, Canada.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -129,6 +129,42 @@
   </footer>
 
   <script>
+    /* Hero headline types in quickly right after the page loads.
+       Letters are only hidden, never removed, so the layout never jumps
+       and the full text stays readable for screen readers and search engines. */
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var h = document.querySelector('.headline');
+      if (reduce || !h) return;
+      var full = h.textContent.replace(/\s+/g, ' ').trim();
+      var chars = [];
+      Array.prototype.slice.call(h.querySelectorAll('span')).forEach(function (sp) {
+        var t = sp.textContent;
+        sp.textContent = '';
+        sp.setAttribute('aria-hidden', 'true');
+        t.split('').forEach(function (ch) {
+          var c = document.createElement('span');
+          c.className = 'ch';
+          c.textContent = ch;
+          sp.appendChild(c);
+          chars.push(c);
+        });
+      });
+      var sr = document.createElement('span');
+      sr.className = 'sr-only';
+      sr.textContent = full;
+      h.insertBefore(sr, h.firstChild);
+      h.classList.add('typing-hero');
+      var i = 0, prev = null;
+      setTimeout(function tick() {
+        if (prev) prev.classList.remove('cur');
+        if (i >= chars.length) { setTimeout(function () { h.classList.remove('typing-hero'); }, 700); return; }
+        prev = chars[i++];
+        prev.classList.add('on', 'cur');
+        setTimeout(tick, 32);
+      }, 450);
+    })();
+
     /* Section titles type themselves out the first time they scroll into view.
        Real text stays in the page for screen readers and search engines. */
     (function () {
