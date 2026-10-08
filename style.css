@@ -41,6 +41,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 700;
   font-size: 1.2rem;
 }
+.brand img { height: 80px; width: 80px; }
 .site-header nav {
   display: flex;
   flex-wrap: wrap;
