@@ -50,7 +50,9 @@ img { max-width: 100%; height: auto; display: block; }
 .site-header nav a {
   color: var(--text);
   text-decoration: none;
-  padding: 8px 4px;          /* big enough to tap */
+  padding: 8px 4px;
+  justify-content: center;
+  /* big enough to tap */
 }
 .site-header nav a:hover { color: var(--accent); }
 
