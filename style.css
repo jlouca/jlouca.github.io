@@ -32,8 +32,7 @@ img { max-width: 100%; height: auto; display: block; }
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--border);
+  padding: 10px 16px 0;
 }
 .brand {
   color: var(--text);
@@ -41,7 +40,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 700;
   font-size: 1.2rem;
 }
-.brand img { height: 80px; width: 80px; }
+.brand img { height: 120px; width: 120px; }
 .site-header nav {
   display: flex;
   flex-wrap: wrap;
@@ -68,7 +67,13 @@ h3 { margin: 12px 0 8px; }
 .title { color: var(--accent); font-size: 1.25rem; margin: 0 0 14px; }
 .lead { max-width: 640px; margin: 0 auto 24px; color: var(--muted); }
 
-.hero { padding-top: 64px; padding-bottom: 64px; }
+.hero { padding-top: 16px; padding-bottom: 64px; }
+.hero-logo { margin: 0 0 4px; line-height: 0; }
+.hero-logo img {
+  width: min(300px, 78vw);
+  height: auto;
+  margin: 0 auto;
+}
 
 /* ---------- Buttons ---------- */
 .buttons { display: flex; flex-direction: column; gap: 12px; align-items: center; }
@@ -149,10 +154,10 @@ footer {
 
 /* ---------- Wider screens ---------- */
 @media (min-width: 768px) {
-  .site-header { flex-direction: row; justify-content: space-between; padding: 16px 32px; }
+  .site-header { padding: 16px 32px 0; }
   .buttons { flex-direction: row; justify-content: center; }
   .mini-cards { grid-template-columns: repeat(3, 1fr); }
-  h1 { font-size: 3.4rem; }
+  .hero-logo img { width: 340px; }
 }
 @media (min-width: 960px) {
   .cards { grid-template-columns: repeat(3, 1fr); }
