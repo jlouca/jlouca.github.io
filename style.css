@@ -50,9 +50,7 @@ img { max-width: 100%; height: auto; display: block; }
 .site-header nav a {
   color: var(--text);
   text-decoration: none;
-  padding: 8px 4px;
-  justify-content: center;
-  /* big enough to tap */
+  padding: 8px 4px;          /* big enough to tap */
 }
 .site-header nav a:hover { color: var(--accent); }
 
@@ -69,7 +67,7 @@ h3 { margin: 12px 0 8px; }
 .title { color: var(--accent); font-size: 1.25rem; margin: 0 0 14px; }
 .lead { max-width: 640px; margin: 0 auto 24px; color: var(--muted); }
 
-.hero { padding-top: 16px; padding-bottom: 64px; text-align: center; }
+.hero { padding-top: 16px; padding-bottom: 64px; }
 .hero-logo { margin: 0 0 4px; line-height: 0; }
 .hero-logo img {
   width: min(300px, 78vw);
@@ -191,14 +189,24 @@ footer {
   padding: 8px 20px;
   font-weight: 700;
 }
-.hero-logo {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
+
+/* ---------- Centering safeguards ---------- */
+.site-header, .site-header nav { justify-content: center; text-align: center; }
+.hero { text-align: center; }
+.hero-logo { display: flex; justify-content: center; width: 100%; }
+.hero-logo img { display: block; margin: 0 auto; }
+
+/* ---------- Logo globe spin (plays once on page load) ---------- */
+.hero-logo { perspective: 900px; }
 .hero-logo img {
-  display: block;
-  margin: 0 auto;
+  animation: globe-spin 1.8s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s 1 both;
+  will-change: transform;
 }
-.hero-logo { text-align: center; }
-.hero-logo img { display: block; margin-left: auto; margin-right: auto; }
+@keyframes globe-spin {
+  from { transform: rotateY(-360deg); opacity: 0; }
+  15%  { opacity: 1; }
+  to   { transform: rotateY(0deg); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-logo img { animation: none; }
+}
