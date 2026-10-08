@@ -60,14 +60,14 @@
       <h2>Featured Work</h2>
       <div class="cards">
 
-        <article class="card pending" aria-label="Chris Pflum project, coming soon">
+        <article class="card pending" aria-label="Chris Pflum project, coming soon" inert>
           <img src="images/chris-pflum.jpg" alt="Screenshot of the Chris Pflum website">
           <h3>Chris Pflum</h3>
           <p>Designed and built a WordPress site for a cloud technology executive, with a filterable blog, About and Contact pages, and a custom logo. I also handle ongoing post editing, optimization, and site management.</p>
           <a class="btn" href="https://thechrispflum.com" target="_blank" rel="noopener">View Live Site</a>
         </article>
 
-        <article class="card pending" aria-label="Candy Travels project, coming soon">
+        <article class="card pending" aria-label="Candy Travels project, coming soon" inert>
           <img src="images/candy-travels.jpg" alt="Screenshot of the Candy Travels website">
           <h3>Candy Travels</h3>
           <p>Built a travel blog website with a custom logo and original content. I manage the site on an ongoing basis. [ADD ONE DETAIL HERE: number of pages, booking links, or similar.]</p>
@@ -84,7 +84,7 @@
       </div>
 
       <h3 class="sub">Also Worked On</h3>
-      <div class="mini-cards">
+      <div class="mini-cards pending" aria-label="Other projects, coming soon" inert>
         <div class="mini">
           <h4>Dirty Cards</h4>
           <p>Logo design, content creation, social media management, product design, and online store management.</p>
@@ -103,7 +103,7 @@
     <!-- CODE SAMPLE -->
     <section id="code">
       <h2>Code Sample</h2>
-      <div class="card wide">
+      <div class="card wide pending" aria-label="Code sample, coming soon" inert>
         <h3>Mutant Moxie</h3>
         <p>A playable browser game built with JavaScript and HTML5 canvas, inspired by 1980s platformers. Momentum-based movement, collectible gold, roaming enemies, and 8 original rooms.</p>
         <a class="btn" href="https://github.com/jlouca/mutant-moxie" target="_blank" rel="noopener">View the Code</a>
@@ -127,6 +127,44 @@
   <footer>
     <p>Copyright &copy; 2026 Jane Shooter</p>
   </footer>
+
+  <script>
+    /* Section titles type themselves out the first time they scroll into view.
+       Real text stays in the page for screen readers and search engines. */
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || !('IntersectionObserver' in window)) return;
+      var heads = document.querySelectorAll('main section:not(.hero) h2, main section h3.sub');
+      heads.forEach(function (h) {
+        var full = h.textContent.trim();
+        h.setAttribute('aria-label', full);
+        h.dataset.full = full;
+        h.style.minHeight = h.offsetHeight + 'px';
+        h.textContent = '';
+        var span = document.createElement('span');
+        span.setAttribute('aria-hidden', 'true');
+        h.appendChild(span);
+      });
+      function type(h) {
+        var full = h.dataset.full, span = h.firstChild, i = 0;
+        h.classList.add('typing');
+        (function step() {
+          i++;
+          span.textContent = full.slice(0, i);
+          if (i < full.length) { setTimeout(step, 55); }
+          else { setTimeout(function () { h.classList.remove('typing'); }, 900); }
+        })();
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          io.unobserve(e.target);
+          type(e.target);
+        });
+      }, { threshold: 0.6 });
+      heads.forEach(function (h) { io.observe(h); });
+    })();
+  </script>
 
 </body>
 </html>
