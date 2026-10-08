@@ -69,7 +69,7 @@ h3 { margin: 12px 0 8px; }
 .title { color: var(--accent); font-size: 1.25rem; margin: 0 0 14px; }
 .lead { max-width: 640px; margin: 0 auto 24px; color: var(--muted); }
 
-.hero { padding-top: 16px; padding-bottom: 64px; }
+.hero { padding-top: 16px; padding-bottom: 64px; text-align: center; }
 .hero-logo { margin: 0 0 4px; line-height: 0; }
 .hero-logo img {
   width: min(300px, 78vw);
@@ -200,3 +200,5 @@ footer {
   display: block;
   margin: 0 auto;
 }
+.hero-logo { text-align: center; }
+.hero-logo img { display: block; margin-left: auto; margin-right: auto; }
