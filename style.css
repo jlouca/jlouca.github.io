@@ -212,7 +212,7 @@ footer {
 }
 
 /* ---------- Section titles: typing caret ---------- */
-h2.typing > span::after {
+.typing > span::after {
   content: "|";
   margin-left: 2px;
   animation: caret-blink 0.7s steps(1) infinite;
