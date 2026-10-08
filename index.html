@@ -27,7 +27,8 @@
     <section class="hero">
       <h1 class="hero-logo"><img src="images/logo.png" alt="Jane Shooter" width="300" height="300"></h1>
       <p class="title">WordPress Developer &amp; Web Designer</p>
-      <p class="lead">I build and manage WordPress sites for small businesses, from design and logo to content and SEO.</p>
+      <p class="headline"><span>Solid builds.</span> <span>Clean code.</span> <span>Dependable support.</span></p>
+      <p class="lead">WordPress websites for small businesses, backed by 6+ years of experience and 20+ years of customer service.</p>
       <div class="buttons">
         <a class="btn" href="#work">View My Work</a>
         <a class="btn btn-outline" href="#contact">Contact Me</a>
@@ -134,7 +135,7 @@
     (function () {
       var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reduce || !('IntersectionObserver' in window)) return;
-      var heads = document.querySelectorAll('main section:not(.hero) h2, main section h3.sub');
+      var heads = document.querySelectorAll('main section:not(.hero) h2');
       heads.forEach(function (h) {
         var full = h.textContent.trim();
         h.setAttribute('aria-label', full);
