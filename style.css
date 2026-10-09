@@ -56,7 +56,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Sections ---------- */
 section {
-  padding: 48px 20px;
+  padding: 48px 28px;
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
@@ -232,4 +232,14 @@ footer {
   right: -3px; top: 12%;
   height: 76%;
   border-right: 2px solid var(--accent);
+}
+
+/* ---------- Skills: grouped ---------- */
+.skill-groups { display: grid; gap: 8px; }
+.skill-group h3 {
+  margin: 22px 0 10px;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
