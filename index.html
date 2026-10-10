@@ -6,7 +6,7 @@
   <title>Jane Shooter | WordPress Developer &amp; Web Designer</title>
   <meta name="description" content="Jane Shooter builds and manages WordPress websites for small businesses: design, logos, content, and SEO. Based in Ontario, Canada.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -37,14 +37,13 @@
     <!-- ABOUT -->
     <section id="about">
       <h2>About Me</h2>
-            <p>I am a web developer and designer based in Ontario, Canada, with 6+ years of freelance experience building WordPress sites for small businesses.</p>
-      <p>I handle the whole job: design, development, logos, copywriting, SEO, and ongoing site management.</p>
-      <p>With 20+ years in customer service behind me, I listen first, communicate clearly, and build sites that fit how my clients actually work.</p>
+      <p>I am a web developer and designer based in Ontario, Canada, with 6+ years of freelance experience building WordPress sites for small businesses. I handle the whole job: design, development, logos, copywriting, SEO, and ongoing site management. With 20+ years in customer service behind me, I listen first, communicate clearly, and build sites that fit how my clients actually work.</p>
+    </section>
 
     <!-- SKILLS -->
     <section id="skills">
       <h2>Skills</h2>
-            <div class="skill-groups">
+      <div class="skill-groups">
         <div class="skill-group">
           <h3>Build</h3>
           <ul class="skills">
@@ -53,8 +52,7 @@
             <li>JavaScript</li>
             <li>Responsive design</li>
             <li>Website management &amp; maintenance</li>
-            <li>Troubleshooting &amp; debugging</li>
-           </ul>
+          </ul>
         </div>
         <div class="skill-group">
           <h3>Tools &amp; DevOps</h3>
@@ -62,7 +60,7 @@
             <li>Git &amp; GitHub</li>
             <li>Docker</li>
             <li>CI/CD (GitHub Actions)</li>
-            <li>AWS (ECR/ECS)</li>            
+            <li>AWS (ECR/ECS)</li>
           </ul>
         </div>
         <div class="skill-group">
@@ -70,6 +68,15 @@
           <ul class="skills">
             <li>Logo design</li>
             <li>Canva</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Grow</h3>
+          <ul class="skills">
+            <li>SEO</li>
+            <li>Copywriting</li>
+            <li>Social media management</li>
+            <li>Online store management</li>
           </ul>
         </div>
         <div class="skill-group">
@@ -85,27 +92,41 @@
     <!-- FEATURED WORK -->
     <section id="work">
       <h2>Featured Work</h2>
-      <div class="cards">
+      <div class="work-list">
 
-        <article class="card pending" aria-label="Chris Pflum project, coming soon" inert>
-          <img src="images/chris-pflum.jpg" alt="Screenshot of the Chris Pflum website">
-          <h3>Chris Pflum</h3>
-          <p>Designed and built a WordPress site for a cloud technology executive, with a filterable blog, About and Contact pages, and a custom logo. I also handle ongoing post editing, optimization, and site management.</p>
-          <a class="btn" href="https://thechrispflum.com" target="_blank" rel="noopener">View Live Site</a>
+        <article class="work-row">
+          <div class="work-title">
+            <h3>Raven</h3>
+            <ul class="tags"><li>AWS</li><li>Docker</li><li>CI/CD</li></ul>
+          </div>
+          <div class="work-text">
+            <p>Helped launch and maintain a private aviation membership website: containerized hosting, automated deployments to AWS, and hands-on troubleshooting.</p>
+          </div>
+          <div class="work-thumb"><img src="images/raven.jpg" alt="Screenshot of the Raven website"></div>
         </article>
 
-        <article class="card pending" aria-label="Candy Travels project, coming soon" inert>
-          <img src="images/candy-travels.jpg" alt="Screenshot of the Candy Travels website">
-          <h3>Candy Travels</h3>
-          <p>Built a travel blog website with a custom logo and original content. I manage the site on an ongoing basis. [ADD ONE DETAIL HERE: number of pages, booking links, or similar.]</p>
-          <a class="btn" href="https://candytravels.com" target="_blank" rel="noopener">View Live Site</a>
+        <article class="work-row">
+          <div class="work-title">
+            <h3>The Dirty Gardener</h3>
+            <ul class="tags"><li>WordPress</li><li>Branding</li><li>Hosting</li></ul>
+          </div>
+          <div class="work-text">
+            <p>Designed, host, and manage the website for my own gardening business, including the logo and all of the content.</p>
+            <a class="btn" href="https://thedg.ca" target="_blank" rel="noopener">View Live Site</a>
+          </div>
+          <div class="work-thumb"><img src="images/dirty-gardener.jpg" alt="Screenshot of The Dirty Gardener website"></div>
         </article>
 
-        <article class="card">
-          <img src="images/dirty-gardener.jpg" alt="Screenshot of The Dirty Gardener website">
-          <h3>The Dirty Gardener</h3>
-          <p>Designed, host, and manage the website for my own gardening business, including the logo and all of the content.</p>
-          <a class="btn" href="https://thedg.ca" target="_blank" rel="noopener">View Live Site</a>
+        <article class="work-row">
+          <div class="work-title">
+            <h3>Chris Pflum</h3>
+            <ul class="tags"><li>WordPress</li><li>Logo</li><li>Ongoing care</li></ul>
+          </div>
+          <div class="work-text">
+            <p>Designed and built a WordPress site for a cloud technology executive, with a filterable blog, About and Contact pages, and a custom logo. I also handle ongoing post editing, optimization, and site management.</p>
+            <a class="btn" href="https://thechrispflum.com" target="_blank" rel="noopener">View Live Site</a>
+          </div>
+          <div class="work-thumb"><img src="images/chris-pflum.jpg" alt="Screenshot of the Chris Pflum website"></div>
         </article>
 
       </div>
@@ -172,13 +193,14 @@
         t.split('').forEach(function (ch) {
           var c = document.createElement('span');
           c.className = 'ch';
-          c.textContent = ch;
+          c.textContent = ch === ' ' ? '\u00a0' : ch;
           sp.appendChild(c);
           chars.push(c);
         });
       });
       var sr = document.createElement('span');
       sr.className = 'sr-only';
+      sr.style.cssText = 'position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;';
       sr.textContent = full;
       h.insertBefore(sr, h.firstChild);
       h.classList.add('typing-hero');
@@ -188,7 +210,7 @@
         if (i >= chars.length) { setTimeout(function () { h.classList.remove('typing-hero'); }, 700); return; }
         prev = chars[i++];
         prev.classList.add('on', 'cur');
-        setTimeout(tick, 80);
+        setTimeout(tick, 32);
       }, 450);
     })();
 

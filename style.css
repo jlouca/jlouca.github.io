@@ -56,7 +56,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Sections ---------- */
 section {
-  padding: 48px 28px;
+  padding: 48px 20px;
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
@@ -64,7 +64,7 @@ section {
 h1 { font-size: 2.4rem; margin: 0 0 6px; line-height: 1.2; }
 h2 { color: var(--accent); font-size: 2rem; margin: 0 0 18px; }
 h3 { margin: 12px 0 8px; }
-.title { font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Arial, sans-serif; font-weight: 500; color: var(--accent); font-size: 1.05rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 44px; }
+.title { color: var(--accent); font-size: 1.05rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 44px; }
 .headline > span { display: inline-block; }
 .headline {
   font-size: 1.5rem;
@@ -242,4 +242,38 @@ footer {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+/* ---------- Featured Work: editorial rows ---------- */
+.work-list { max-width: 1100px; margin: 0 auto; padding: 0 14px; border-top: 1px solid var(--border); }
+.work-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  text-align: center;
+}
+.work-title h3 { margin: 0; font-size: 1.5rem; }
+.work-text p { margin: 0 0 14px; color: var(--muted); }
+.work-thumb { margin-top: 10px; }
+.work-thumb img {
+  display: block; width: 100%;
+  aspect-ratio: 16 / 9; object-fit: cover; object-position: center top;
+  border-radius: 10px; border: 1px solid var(--border);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+}
+.tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 10px 0 0; padding: 0; list-style: none; }
+.tags li { font-size: 0.72rem; color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; }
+
+@media (min-width: 900px) {
+  .work-list { padding: 0; }
+  .work-row { grid-template-columns: 1.1fr 1.4fr 300px; gap: 28px; padding: 32px 14px; text-align: left; }
+  .work-thumb { margin: 0; }
+  .work-title h3 { font-size: 1.9rem; }
+  .tags { justify-content: flex-start; }
+  .work-thumb img { transform: rotate(2deg); transition: transform 0.3s; }
+  .work-row:nth-child(even) .work-thumb img { transform: rotate(-2deg); }
+  .work-row:hover .work-thumb img { transform: none; }
 }
