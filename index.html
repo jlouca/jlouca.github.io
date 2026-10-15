@@ -171,6 +171,7 @@
         <a class="btn btn-outline" href="https://github.com/jlouca" target="_blank" rel="noopener">GitHub</a>
         <a class="btn btn-outline" href="Jane_Shooter_Resume.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
       </div>
+      <p id="email-fallback" class="email-fallback" hidden>Email didn't open? <a id="email-gmail" href="#contact" target="_blank" rel="noopener">Write it in Gmail</a> or <button type="button" id="email-copy">copy my email address</button>.</p>
     </section>
 
   </main>
@@ -255,12 +256,27 @@
   </script>
 
   <script>
-    /* Builds the email link in script so the address is not plain text on the page */
+    /* Builds the email link in script so the address is not plain text on the page.
+       If no mail app opens, shows a Gmail link and a copy button as a fallback. */
     (function () {
       var b = document.getElementById('email-btn');
+      var fb = document.getElementById('email-fallback');
       if (!b) return;
-      var u = ['janeshooter', 'website'].join('.'), d = ['gmail', 'com'].join('.');
-      b.href = 'mailto:' + u + '@' + d + '?subject=' + encodeURIComponent('Hello from your portfolio');
+      var addr = ['janeshooter', 'website'].join('.') + '@' + ['gmail', 'com'].join('.');
+      var subj = 'Hello from your portfolio';
+      b.href = 'mailto:' + addr + '?subject=' + encodeURIComponent(subj);
+      if (!fb) return;
+      var g = document.getElementById('email-gmail');
+      var c = document.getElementById('email-copy');
+      g.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(addr) + '&su=' + encodeURIComponent(subj);
+      b.addEventListener('click', function () {
+        setTimeout(function () { if (document.visibilityState === 'visible' && document.hasFocus()) fb.hidden = false; }, 1200);
+      });
+      c.addEventListener('click', function () {
+        function done() { c.textContent = 'Copied!'; }
+        if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(addr).then(done, function () { window.prompt('Copy this address:', addr); }); }
+        else { window.prompt('Copy this address:', addr); }
+      });
     })();
   </script>
 </body>

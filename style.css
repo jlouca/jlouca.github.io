@@ -277,3 +277,10 @@ footer {
   .work-row:nth-child(even) .work-thumb img { transform: rotate(-2deg); }
   .work-row:hover .work-thumb img { transform: none; }
 }
+
+/* ---------- Contact buttons ---------- */
+.contact-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 22px; }
+.email-fallback { margin-top: 18px; font-size: 0.9rem; color: var(--muted); }
+.email-fallback[hidden] { display: none; }
+.email-fallback a { color: var(--accent); }
+.email-fallback button { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
