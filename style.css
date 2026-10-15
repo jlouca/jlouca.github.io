@@ -237,11 +237,11 @@ footer {
 /* ---------- Skills: grouped ---------- */
 .skill-groups { display: grid; gap: 8px; }
 .skill-group h3 {
-  margin: 22px 0 10px;
-  font-size: 0.85rem;
-  letter-spacing: 0.14em;
+  margin: 26px 0 12px;
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--accent);
 }
 
 /* ---------- Featured Work: editorial rows ---------- */
