@@ -286,6 +286,7 @@ footer {
 .email-fallback button { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
 
 /* ---------- Logo Design: uniform logo tiles ---------- */
-.logo-tile { background: #fff; border-radius: 10px; aspect-ratio: 16 / 9; overflow: hidden; margin-bottom: 14px; }
+.logo-grid { display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 1000px; margin: 0 auto; }
+.logo-tile { background: #fff; border-radius: 10px; aspect-ratio: 16 / 9; overflow: hidden; }
 .logo-tile img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.mini { text-align: center; }
+@media (min-width: 768px) { .logo-grid { grid-template-columns: repeat(3, 1fr); } }
